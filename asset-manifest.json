@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/Drabber/static/css/main.2d138ee7.css",
+    "main.js": "/Drabber/static/js/main.42419991.js",
+    "static/media/Eye_gif.gif": "/Drabber/static/media/Eye_gif.c79da56815dccf6a71d3.gif",
+    "static/media/form_load.gif": "/Drabber/static/media/form_load.a21f1b15a38392fdfd2f.gif",
+    "static/media/TaskComplete.mp3": "/Drabber/static/media/TaskComplete.92364570bb248f86dfe2.mp3",
+    "static/media/checkGoal.mp3": "/Drabber/static/media/checkGoal.d89bcc151f2694cf5e70.mp3",
+    "static/media/GoalDone.mp3": "/Drabber/static/media/GoalDone.00a1a69382c3f118cf49.mp3",
+    "static/media/checkPomodoro.mp3": "/Drabber/static/media/checkPomodoro.af0fa8e8fadac01b05c5.mp3",
+    "static/media/ayoub.jpg": "/Drabber/static/media/ayoub.6087ca7975050b7d152d.jpg",
+    "static/media/checkTask.mp3": "/Drabber/static/media/checkTask.30c868fd17522274b920.mp3",
+    "static/media/check.png": "/Drabber/static/media/check.8c9f5719b5ee6fb7f733.png",
+    "static/media/checkAll.mp3": "/Drabber/static/media/checkAll.cf4903f3258c2dbed18a.mp3",
+    "static/media/unCheckGoal.mp3": "/Drabber/static/media/unCheckGoal.2b5e26f24dca9369a809.mp3",
+    "static/media/unCheck.mp3": "/Drabber/static/media/unCheck.e5962b2bc47fdca84e2d.mp3",
+    "index.html": "/Drabber/index.html",
+    "main.2d138ee7.css.map": "/Drabber/static/css/main.2d138ee7.css.map",
+    "main.42419991.js.map": "/Drabber/static/js/main.42419991.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2d138ee7.css",
+    "static/js/main.42419991.js"
+  ]
+}

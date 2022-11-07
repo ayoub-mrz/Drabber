@@ -1,0 +1,167 @@
+.goal-card {
+    background-color: var(--drb-card-bg);
+    width: 300px;
+    border-radius: 5px 5px 20px 20px;
+    text-align: center;
+    position: relative;
+    padding: 2rem 1rem;
+    margin: 1.25rem;
+    box-shadow: 3px 3px 12px var(--drb-card-shadow);
+    overflow: hidden;
+    position: relative;
+    &.complete {
+        background-color: var(--drb-card-goal-done);
+        order: 1;
+        .glass-effect {
+            &::before, &::after {
+                content: "";
+                position: absolute;
+                background-color: #fff;
+                height: 100%;
+                top: 0;
+                opacity: .4;
+                transform: skewX(25deg);
+                z-index: 9;
+            }
+            &::before {
+                width: 60px;
+                left: 20%;
+                @media (max-width: 1366px) {
+                    & {
+                        width: 45px;
+                    }
+                }
+            }
+            &::after {
+                width: 100px;
+                left: 45%;
+                @media (max-width: 1366px) {
+                    & {
+                        width: 75px;
+                    }
+                }
+            }
+        }
+    }
+    @media (max-width: 1400px) {
+        & {
+            width: 250px;
+            margin: 0.65rem 0.45rem;
+        }
+    }
+    &::before {
+        content: '';
+        background-color: var(--drb-Main-Color);
+        @extend .position-flow;
+        width: 100%;
+        height: 5px;
+    }
+    &:hover .option .option-btn {
+        opacity: 1;
+    }
+    .option {
+        position: absolute;
+        top: 25px;
+        right: 5px;
+        transform: translateY(-50%);
+        user-select: none;
+        height: 20px;
+        z-index: 9;
+        .option-btn {
+            @extend .smoothPointer;
+            opacity: 0;
+            svg {
+                height: 20px;
+            }
+        }
+        .option-container {
+            position: relative;
+            .popup-option {
+                width: 100px;
+                padding-block: 0.45rem;
+                border-radius: 5px;
+                background-color: var(--drb-primary-bg);
+                position: absolute;
+                top: -5px;
+                left: -80px;
+                z-index: 99;
+                box-shadow: 1px 1px 13px var(--drb-popUp-shadow);
+                .delete {
+                    @extend .smoothPointer;
+                    @extend .center-f;
+                    justify-content: center;
+                    width: 100%;
+                    font-size: 0.7em;
+                    color: var(--drb-secondart-text);
+                    padding-block: 0.25rem;
+                    text-align: center;
+                    svg {
+                        height: 15px;
+                        margin-right: 0.35rem;
+                        path {
+                            transition: .5s;
+                        }
+                    }
+                    &:hover {
+                        background-color: var(--drb-popup-option-hover);
+                        color: var(--drb-task-undone);
+                    }
+                    &:hover svg path {
+                        stroke: var(--drb-task-undone);
+                    }
+                }
+            }
+            .hide {
+                display: none;
+            }
+        }
+    }
+    .card-title {
+        width: 270px;
+        color: var(--drb-primary-text);
+        font-size: 1.25rem;
+        font-weight: 400;
+        margin-bottom: 0.85rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        @extend .overFlow-text-hide;
+        @media (max-width: 1400px) {
+            & {
+                width: 220px;
+                font-size: 1.1rem;
+            }
+        }
+    }
+    .card-progress {
+        background-color: var(--drb-secondary-bg);
+        width: 100%;
+        height: 10px;
+        border-radius: 25px;
+        position: relative;
+        .progress {
+            height: 100%;
+            border-radius: 25px 0 0 25px;
+            background-color: var(--drb-Main-Color);
+            &.correct-BR {
+                border-radius: 25px;
+            }
+            .progress-percent {
+                width: 50px;
+                font-size: 14px;
+                color: var(--drb-primary-text);
+                position: absolute;
+                bottom: -27px;
+                &::after {
+                    content: '';
+                    background-color: var(--drb-Main-Color);
+                    height: 20px;
+                    width: 2px;
+                    position: absolute;
+                    top: -20px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+            }
+        }
+    }
+}

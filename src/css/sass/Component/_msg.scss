@@ -1,0 +1,69 @@
+.msg-container{
+    z-index: 99999;
+    position: relative;
+    .main-msg {
+        width: 250px;
+        position: fixed;
+        bottom: 85%;
+        left: 50%;
+        transform: translateX(-50%);
+        @extend .center-f;
+        flex-direction: column;
+        span {
+            width: 100%;
+            background-color: var(--drb-primary-bg);
+            border: 1px solid var(--drb-lineX050);
+            border-radius: 5px;
+            color: var(--drb-secondart-text);
+            font-size: .95em;
+            padding-block: 0.45rem;
+            margin-block: 0.2rem;
+            @extend .center-g;
+            transition: .5s;
+            padding: .45rem .65rem;
+            text-align: center;
+        }
+    }
+    .delete-msg {
+        max-width: 330px;
+        position: fixed;
+        bottom: 6%;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        display: none;
+        transition: .5s;
+        transform: translateY(30px);
+        &.show {
+            display: block;
+        }
+        .delete-card {
+            background-color: var(--drb-primary-bg);
+            border: 1px solid var(--drb-lineX050);
+            border-radius: 5px;
+            color: var(--drb-secondart-text);
+            padding: 0.45rem 1rem;
+            @extend .center-f;
+            justify-content: center;
+            .delete-title {
+                @extend .center-f;
+                .delete-name {
+                    max-width: 130px;
+                }
+            }
+            .line {
+                height: 20px;
+                width: 1px;
+                background-color: var(--drb-lineX075);
+                margin-inline: .75rem;
+            }
+            button {
+                font-size: 1em;
+                font-weight: 400;
+            }
+        }
+    }
+}
+
+
+

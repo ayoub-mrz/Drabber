@@ -1,0 +1,11 @@
+.task-add {
+    .popupCard {
+        @extend .center-g;
+        width: 750px;
+        height: 150px;
+        background-color: var(--drb-card-bg);
+        border: 1px solid var(--drb-lineX050);
+        border-radius: 5px;
+        translate: 0 -60%;
+    }
+}

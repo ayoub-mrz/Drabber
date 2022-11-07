@@ -1,0 +1,178 @@
+.todaySection {
+    @extend .wide;
+    .column-container {
+        @extend .wide;
+        @extend .center-f;
+        justify-content: space-evenly;
+        .todo-column, .done-column {
+            height: 100%;
+            width: 330px;
+            @media (max-width: 992px) {
+                & {
+                    width: 250px;
+                    .title {
+                        font-size: 1.05em;
+                    }
+                }
+            }
+            .head {
+                width: 100%;
+                border-bottom: 1px solid var(--drb-lineX075);
+                padding-top: 1rem;
+                @extend .center-f;
+                .circle, .title {
+                    margin-left: .45rem;
+                }
+                .circle {
+                    height: 20px;
+                    width: 20px;
+                    border-radius: 50%;
+                }
+                .title {
+                    font-size: 1.25em;
+                    color: var(--drb-secondart-text);
+                }
+            }
+            .task-container {
+                width: 100%;
+                padding: 2rem 0.65rem;
+                .task-card {
+                    width: 100%;
+                    border: 1px solid var(--drb-lineX025);
+                    border-radius: 5px;
+                    position: relative;
+                    &:hover .option .option-btn{
+                        opacity: 1;
+                    }
+                    &:not(:last-child) {
+                        margin-bottom: 0.65rem;
+                    }
+                    .option {
+                        position: absolute;
+                        top: 10px;
+                        right: 5px;
+                        user-select: none;
+                        height: 20px;
+                        .option-btn {
+                            @extend .smoothPointer;
+                            opacity: 0;
+                            svg {
+                                height: 20px;
+                            }
+                        }
+                        .option-container {
+                            position: relative;
+                            .popup-option {
+                                width: 125px;
+                                padding-block: .45rem;
+                                border-radius: 5px;
+                                background-color: var(--drb-primary-bg);
+                                position: absolute;
+                                bottom: -45px;
+                                right: -100px;
+                                z-index: 99;
+                                .delete {
+                                    @extend .smoothPointer;
+                                    @extend .center-f;
+                                    justify-content: center;
+                                    width: 100%;
+                                    font-size: .9em;
+                                    color: var(--drb-secondart-text);
+                                    padding-block: 0.25rem;
+                                    text-align: center;
+                                    svg {
+                                        height: 20px;
+                                        margin-right: 0.35rem;
+                                        path {
+                                            transition: .5s;
+                                        }
+                                    }
+                                    &:hover {
+                                        background-color: var(--drb-popup-option-hover);
+                                        color: var(--drb-task-undone);
+                                    }
+                                    &:hover svg path {
+                                        stroke: var(--drb-task-undone);
+                                    }
+                                }
+                            }
+                            .hide {
+                                display: none;
+                            }
+                        }
+                    }
+                    .title {
+                        width: 100%;
+                        font-size: 1.25em;
+                        background-color: var(--drb-task-bg);
+                        color: var(--drb-primary-text);
+                        text-shadow: 2px 2px 9px #0000008c;
+                        padding: 1rem 1.25rem;
+                        border-bottom: 1px solid var(--drb-lineX025);
+                        border-radius: 5px 5px 0 0;
+                        text-align: center;
+                        @media (max-width: 992px) {
+                            & {
+                                font-size: 1.05em;
+                            }
+                        }
+                    }
+                    .checkbox-container {
+                        @extend .center-f;
+                        flex-wrap: wrap;
+                        padding: 0.45rem;
+                        .check-box {
+                            @extend .center-g;
+                            width: 20px;
+                            height: 20px;
+                            border: 1px solid var(--drb-Main-Color);
+                            border-radius: 3px;
+                            margin-bottom: .25rem;
+                            user-select: none;
+                            img {
+                                height: 18px;
+                                aspect-ratio: 1;
+                            }
+                            &:not(.done .check-box) {
+                                cursor: pointer;
+                                transition: scale .5s;
+                            }
+                            &:hover:not(.done .check-box) {
+                                scale: .95;
+                            }
+                            &:not(:last-child) {
+                                margin-right: .15rem;
+                            }
+                            &.justOne {
+                                width: 100%;
+                                margin: unset;
+                            }
+                        }
+                        .checked {
+                            background-color: var(--drb-task-done);
+                            border: 1px solid var(--drb-task-done);
+                        }
+                    }
+                }
+                .done {
+                    border: 1px solid var(--drb-task-done);
+                    .title {
+                        background-color: var(--drb-task-done);
+                        border-bottom: 1px solid var(--drb-task-done);
+                        text-decoration: line-through;
+                    }
+                }
+            }
+        }
+        .todo-column {
+            .circle {
+                    background-color: var(--drb-Main-Color);
+                }
+        }
+        .done-column {
+            .circle {
+                    background-color: var(--drb-task-done);
+                }
+        }
+    }
+}

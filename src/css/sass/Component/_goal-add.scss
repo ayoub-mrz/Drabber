@@ -1,0 +1,48 @@
+.goal-add {
+    .popupCard {
+        background-color: var(--drb-card-bg);
+        border: 1px solid var(--drb-lineX050);
+        border-radius: 5px;
+        width: 500px;
+        padding: 1.45rem 2rem;
+        .inputName, .numDays {
+            h5 {
+                font-size: .9em;
+                color: var(--drb-secondart-text);
+                span {
+                    font-size: .8em;
+                    margin-left: 0.45rem;
+                    color: #6c6c6c;
+                }
+            }
+            input {
+                height: 40px;
+                background-color: var(--drb-input-bg);
+                color: var(--drb-primary-text);
+                padding-inline: 1rem;
+                border-radius: 5px;
+                transition: .2s;
+                &:focus {
+                    background-color: var(--drb-card-bg);
+                    border: 1px solid var(--drb-Main-Color);
+                }
+            }
+        }
+        .inputName {
+            input {
+            width: 100%;
+            }
+        }
+        .numDays {
+            @extend .center-f;
+            justify-content: space-between;
+            margin-block: 1rem;
+            input {
+                width: 30%;
+            }
+        }
+        button {
+            @extend .btn-wide;
+        }
+    }
+}

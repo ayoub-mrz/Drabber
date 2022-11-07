@@ -1,0 +1,68 @@
+--drb-syan: 17E6DB.
+--drb-blue: 2556D4.
+--drb-purple: 533FCB.
+--drb-yellow: DECA35.
+--drb-darkColor: 000000.
+
+--------------------------------  Static Colors  ---------------------------------
+--drb-darkColor: 000000.
+--drb-purple: 533FCB.
+--drb-yellow: DECA35.
+--drb-blue: 2556D4.
+--drb-syan: 17E6DB.
+--drb-Main-Color: --drb-syan.
+--drb-task-done: 3CCC64.
+--drb-task-undone: C83936.
+-------------------------------------  Light  --------------------------------------
+--drb-gradient-active: ( --drb-syan 30%, A7FFFA 0%).
+--drb-primary-bg: EDEDED.
+--drb-secondary-bg: FFFFFF.
+--drb-primary-text: 0E0F17.
+--drb-secondart-text: 818181.
+--drb-minTitle: 898989.
+--drb-lineX0.25: AEAEAE.
+--drb-lineX0.50: BABABA.
+--drb-lineX0.75: CDCDCD.
+--drb-card-bg: F1F1F1.
+--drb-sideCard-stroke: E6E6E6.
+--drb-sideCard-gradient: (F4F4F4 50%, C7C7C7 50%).
+--drb-input-bg: E7E7E7.
+--drb-placeHolder: A3A3A3.
+--drb-task-bg: DADADA.
+--drb-gradient-showMore: (FFFFFF 0%, FFFFFF 100%).
+--drb-navText-pomodoro: 676767.
+--drb-flow-bg: A1A1A1 60%.
+--drb-task-bg-hover: ACACAC.
+--drb-timer-shadow: C3C3C3 25%.
+-------------------------------------  Dark  --------------------------------------
+--drb-gradient-active: ( --drb-syan 30%, 212121 0%).
+--drb-primary-bg: 212121.
+--drb-secondary-bg: 141414.
+--drb-primary-text: FFFFFF.
+--drb-secondart-text: D9D9D9.
+--drb-minTitle: 505050.
+--drb-lineX0.25: B4B4B4.
+--drb-lineX0.50: 363636.
+--drb-lineX0.75: 434343.
+--drb-card-bg: 2E2E2E.
+--drb-sideCard-stroke: ADADAD.
+--drb-sideCard-gradient: (4B4B4B 60%, 303030 0%).
+--drb-input-bg: 242424.
+--drb-placeHolder: 787878.
+--drb-task-bg: 565656.
+--drb-gradient-showMore: (000000 0%, 000000 100%).
+--drb-navText-pomodoro: 676767.
+--drb-flow-bg: 151515 60%.
+--drb-task-bg-hover: 404040.
+--drb-timer-shadow: 030303 25%.
+
+
+
+
+
+
+
+
+
+
+

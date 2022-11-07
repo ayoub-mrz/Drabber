@@ -1,0 +1,39 @@
+button {
+    font-weight: 500;
+    color: var(--drb-primary-text);
+    @extend .smoothPointer;
+}
+
+.btn-bc {
+    padding: 0.5rem 0.85rem;
+    border-radius: 5px;
+    background-color: var(--drb-Main-Color);
+    &:hover {
+        outline: 1px solid var(--drb-Main-Color);
+        background-color: transparent;
+    }
+}
+.btn-wbc {
+    &:hover {
+        color: var(--drb-Main-Color);
+    }
+}
+
+.btn-wide {
+    width: 100%;
+    background-color: var(--drb-Main-Color);
+    border-radius: 5px;
+    margin-top: 1.45rem;
+    height: 40px;
+    color: var(--drb-primary-text);
+    @extend .center-g;
+    position: relative;
+    img {
+        display: none;
+        position: absolute;
+        height: 50px;
+    }
+    &:hover {
+        filter: brightness(0.9);
+    }
+}

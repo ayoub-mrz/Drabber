@@ -1,0 +1,22 @@
+.loading-background {
+    @extend .center-g;
+    @extend .wide;
+    background-color: var(--drb-primary-bg);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999999;
+    > div {
+        text-align: center;
+        span {
+            display: inherit;
+            transform: scale(1.75);
+            margin-bottom: 1.65rem;
+        }
+        h4 {
+            color: var(--drb-primary-text);
+            font-size: 1.2em;
+            font-weight: 400;
+        }
+    }
+}

@@ -1,0 +1,149 @@
+.navbar {
+    @extend .center-f;
+    height: 70px;
+    width: calc(100% - 230px);
+    background-color: var(--drb-primary-bg);
+    justify-content: space-between;
+    padding-inline: 1.4rem;
+    margin-left: 230px;
+    transform: translateY(-50px);
+    transition: transform 1.5s;
+    .title-section {
+        display: flex;
+        align-items: flex-end;
+        position: relative;
+        h1 {
+            color: var(--drb-primary-text);
+            font-size: 2em;
+            font-weight: 400;
+            position: relative;
+            user-select: none;
+            text-transform: capitalize;
+        }
+        span {
+            font-size: .65em;
+            color: var(--drb-secondart-text);
+            font-size: 1.35em;
+            margin: 0 0 3px 5px;
+            max-width: 220px;
+            text-transform: capitalize;
+        }
+        &::after {
+            content: '';
+            background-color: var(--drb-Main-Color);
+            width: 60%;
+            height: 3px;
+            position: absolute;
+            bottom: 10%;
+            left: 0;
+        }
+    }
+    .hide {
+        opacity: 0;
+    }
+    .btn-ctn {
+        @extend .center-f;
+        .user-photo {
+            background-color: var(--drb-primary-bg);
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            outline: 1px solid var(--drb-lineX025);
+            position: relative;
+            .pic {
+                width: 40px;
+                height: 40px;
+                position: relative;
+                border-radius: 50%;
+                @extend .center-g;
+                img, svg {
+                    @extend .wide;
+                    border-radius: 50%;
+                    position: absolute;
+                    cursor: pointer;
+                }
+                svg {
+                    z-index: 5;
+                    width: 30px;
+                    height: 35px;
+                }
+                img {
+                    z-index: 9;
+                }
+            }
+            .setting-account {
+                position: absolute;
+                top: 50px;
+                right: 0px;
+                width: 250px;
+                background-color: var(--drb-primary-bg);
+                border: 1px solid var(--drb-lineX050);
+                border-radius: 5px;
+                padding: 1.45rem 2rem;
+                @extend .center-f;
+                flex-direction: column;
+                text-align: center;
+                z-index: 999999;
+                .account-info {
+                    .user-photo {
+                        margin-inline: auto;
+                        .pic {
+                            img, svg {
+                                cursor: unset;
+                            }
+                        }
+                    }
+                    .user-name {
+                        margin-top: 0.65rem;
+                        font-size: 1.25em;
+                        text-transform: capitalize;
+                        color: var(--drb-primary-text);
+                        user-select: none;
+                    }
+                }
+                .line{
+                    height: 1px;
+                    width: 100%;
+                    background-color: var(--drb-lineX075);
+                    margin-block: 1rem;
+                }
+                .control-colors {
+                    .title {
+                        font-size: .95em;
+                        color: var(--drb-primary-text);
+                        user-select: none;
+                    }
+                    .colors {
+                        margin-top:0.65rem; 
+                        @extend .center-f;
+                        div {
+                            height: 35px;
+                            width: 35px;
+                            border-radius: 50%;
+                            margin-inline-start: .65rem;
+                            @extend .smoothPointer;
+                            &:hover {
+                                filter: brightness(.9);
+                            }
+                        }
+                        .active {
+                            transform: scale(1.2);
+                        }
+                        .syan {
+                            background-color: var(--drb-syan);
+                        }
+                        .purple {
+                            background-color: var(--drb-purple);
+                        }
+                        .blue {
+                            background-color: var(--drb-blue);
+                        }
+                        .yellow {
+                            background-color: var(--drb-yellow);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,221 @@
+.goalsSection {
+    @extend .wide;
+    position: relative;
+    .goal-option {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        svg {
+            height: 30px;
+            cursor: pointer;
+        }
+        .option-container {
+            position: relative;
+            .popup-option {
+                width: 150px;
+                padding-block: .45rem;
+                border-radius: 5px;
+                background-color: var(--drb-primary-bg);
+                position: absolute;
+                bottom: -45px;
+                right: -10px;
+                z-index: 99;
+                .delete {
+                    @extend .smoothPointer;
+                    @extend .center-f;
+                    justify-content: center;
+                    width: 100%;
+                    font-size: .9em;
+                    color: var(--drb-secondart-text);
+                    padding-block: 0.25rem;
+                    text-align: center;
+                    svg {
+                        height: 20px;
+                        margin-right: 0.35rem;
+                        path {
+                            transition: .5s;
+                        }
+                    }
+                    &:hover {
+                        background-color: var(--drb-popup-option-hover);
+                        color: var(--drb-task-undone);
+                    }
+                    &:hover svg path {
+                        stroke: var(--drb-task-undone);
+                    }
+                }
+            }
+        }
+    };
+    .goal-progress {
+        width: 80%;
+        height: 25vh;
+        margin-inline: auto;
+        padding-block: 2rem;
+        @extend .center-f;
+        justify-content: center;
+        border-bottom: 1px solid var(--drb-lineX075);
+        .progress-line-container {
+            @extend .center-f;
+            position: relative;
+            .progress-start, .progress-end {
+                width: 40px;
+                font-size: 1.2em;
+                color: var(--drb-primary-text);
+                position: absolute;
+                bottom: -30px;
+                text-align: center;
+            }
+            .progress-start {
+                left: -20px;
+            }
+            .progress-end {
+                right: -20px;
+            }
+            .line {
+                height: 40px;
+                width: 4px;
+                background-color: var(--drb-primary-bg);
+                order: 5;
+                &:not(:last-child) {
+                    margin-right: 4px;
+                }
+                @media (max-width: 1250px) {
+                    & {
+                        width: 3px;
+                    }
+                    &:not(:last-child) {
+                        margin-right: 2px;
+                    }
+                }
+            }
+            .line-done {
+                background-color: var(--drb-task-done);
+                height: 42px;
+                order: 1;
+            }
+        }
+    }
+    .goal-days {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 600px;
+        margin-inline: auto;
+        margin-block: 5rem 2rem;
+        @media (max-width: 992px) {
+            & {
+                justify-content: center;
+            }
+        }
+        .day {
+            height: 60px;
+            width: 60px;
+            border: 1px solid var(--drb-secondart-text);
+            @extend .smoothPointer;
+            @extend .center-f;
+            justify-content: center;
+            position: relative;
+            z-index: 9;
+            span {
+                color: var(--drb-secondart-text);
+                font-size: .75em;
+                transition: .5s;
+            }
+            &:hover {
+                transform: scale(.95);
+            }
+            &:hover .check svg, &:hover .unCheck svg {
+                height: 35px;
+            }
+            &:hover .check {
+                transform: translate(-30px, -52px);
+                height: 45px;
+                width: 45px;
+            }
+            &:hover .unCheck {
+                transform: translate(30px, -52px);
+                height: 45px;
+                width: 45px;
+            }
+            .check, .unCheck {
+                @extend .center-g;
+                position: absolute;
+                transition: .5s;
+                border-radius: 50%;
+                height: 0;
+                width: 0;
+                z-index: 99;
+                &:hover {
+                    scale: (1.1);
+                }
+                svg {
+                    height: 0;
+                    position: relative;
+                    top: unset;
+                    left: unset;
+                    transition: .5s;
+                    path {
+                        stroke-width: 54;
+                    }
+                }
+            }
+            .check {
+                box-shadow: inset 0 0 14px var(--drb-task-done);
+                path {
+                    stroke: var(--drb-task-done);
+                }
+            }
+            .unCheck {
+                box-shadow: inset 0 0 14px var(--drb-task-undone);
+                path {
+                    stroke: var(--drb-task-undone);
+                }
+            }
+        }
+        .finish, .unfinish {
+            transform: scale(.95);
+        }
+        .finish {
+            border: 1px solid var(--drb-task-done);
+            span {
+                color: var(--drb-task-done);
+            }
+        }
+        .unfinish {
+            border: 1px solid var(--drb-task-undone);
+            span {
+                color: var(--drb-task-undone);
+            }
+        }
+    }
+}
+
+
+// &:hover .check {
+//     transform: translate(-30px, -30px);
+// }
+// &:hover .unCheck {
+//     transform: translate(30px, -30px);
+// }
+// .check, .unCheck {
+//     position: absolute;
+//     svg {
+//         height: 0;
+//         top: unset;
+//         left: unset;
+//         transition: .5s;
+//         path {
+//             stroke-width: 54;
+//         }
+//     }
+// }
+// svg:first-of-type {
+//     path {
+//         stroke: var(--drb-task-done);
+//     }
+// }
+// svg:last-of-type {
+//     path {
+//         stroke: var(--drb-task-undone);
+//     }
+// }

@@ -1,0 +1,18 @@
+.intro-nav {
+    height: 70px;
+    width: 100%;
+    background-color: var(--drb-primary-bg);
+    @extend .center-f;
+    justify-content: space-between;
+    padding: 0 6rem;
+    .btn-ctn {
+        display: flex;
+        align-items: center;
+        .line {
+            height: 20px;
+            width: 1px;
+            background-color: var(--drb-lineX075);
+            margin-inline: 10px;
+        }
+    }
+}

@@ -1,0 +1,84 @@
+.form {
+    .form {
+        width: 450px;
+        background-color: var(--drb-primary-bg);
+        border: 1px solid var(--drb-lineX050);
+        border-radius: 10px;
+        text-align: center;
+        padding: 3.25rem 4rem;
+        .logo {
+            margin-bottom: 4rem;
+        }
+        .input {
+            width: 100%;
+            margin-bottom: .7rem;
+            .field {
+                position: relative;
+                input {
+                    height: 45px;
+                    width: 100%;
+                    background-color: var(--drb-input-bg);
+                    border-radius: 5px;
+                    color: var(--drb-primary-text);
+                    padding-inline: 5%;
+                    transition: .2s;
+                    &:focus {
+                        background-color: var(--drb-primary-bg);
+                        border: 1px solid var(--drb-Main-Color);
+                    }
+                    &:focus ~ span{
+                        font-size: .9em;
+                        color: var(--drb-Main-Color);
+                        top: 0;
+                        background-color: var(--drb-primary-bg);
+                        padding-inline: .15rem;
+                        height: 20px;
+                    }
+                    &:focus ~ img {
+                        display: block;
+                    }
+                }
+                span, img {
+                    transform: translateY(-50%);
+                    position: absolute;
+                    top: 50%;
+                    color:  var(--drb-placeHolder);
+                }
+                span {
+                    font-size: 1em;
+                    left: 5%;
+                    transition: .1s;
+                }
+                img {
+                    right: 3%;
+                    height: 35px;
+                    cursor: pointer;
+                    display: none;
+                }
+            }
+            .info {
+                font-size: .8em;
+                color: var(--drb-minTitle);
+                text-align: start;
+                margin-left: 0.55rem;
+                margin-top: .35rem;
+            }
+            .recover-ctn {
+                @extend .center-f;
+                .recover {
+                    color: var(--drb-Main-Color);
+                    font-size: .75em;
+                    display: inline-block;
+                    margin-inline: auto 0.35rem;
+                    @extend .smoothPointer;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+        button {
+            @extend .btn-wide;
+        }
+    }
+}

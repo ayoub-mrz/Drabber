@@ -1,0 +1,202 @@
+.pomodoroSection {
+    @extend .wide;
+    @extend .center-f;
+    .pomodoro-container,
+    .settings-container {
+        height: calc(100vh - 70px);
+    }
+    .pomodoro-container {
+        width: calc(100% - 350px);
+        @extend .center-f;
+        flex-direction: column;
+        @media (max-width: 1366px) {
+            & {
+                width: calc(100% - 300px);
+            }
+        }
+        &.fullWidth {
+            width: 100%;
+        }
+        .head {
+            margin-block: 6rem 4rem;
+            user-select: none;
+            @media (max-width: 1366px) {
+                & {
+                    margin-block: 4rem 3rem;
+                }
+            }
+            ul {
+                @extend .center-f;
+                li {
+                    padding: 0.25rem 1rem;
+                    font-size: 1.15em;
+                    font-weight: 500;
+                    color: var(--drb-secondart-text);
+                    &:not(:last-child) {
+                        border-right: 1px solid var(--drb-lineX050);
+                    }
+                    &.active{
+                        color: var(--drb-Main-Color);
+                    }
+                }
+            }
+        }
+        .timer-container {
+            position: relative;
+            .timer-number {
+                position: absolute;
+                top: 40%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 5.25em;
+                font-weight: 700;
+                color: var(--drb-secondart-text);
+                letter-spacing: 5px;
+                @media (max-width: 1366px) {
+                    & {
+                        font-size: 4em;
+                    }
+                }
+            }
+            .timer-btns {
+                position: absolute;
+                top: 70%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 9;
+                svg {
+                    height: 60px;
+                    cursor: pointer;
+                    @media (max-width: 1366px) {
+                        & {
+                            height: 45px;
+                        }
+                    }
+                    path{
+                        fill: var(--drb-Main-Color);
+                    }
+                }
+                .btn-container {
+                    @extend .center-f;
+                    .line {
+                        height: 35px;
+                        width: 1px;
+                        background-color: var(--drb-lineX075);
+                    }
+                    .stop, .resume {
+                        margin-inline: 1rem;
+                    }
+                }
+            }
+            .timer-circle {
+                @extend .center-g;
+                height: 400px;
+                width: 400px;
+                border-radius: 50%;
+                box-shadow: 10px 10px 20px 25px var(--drb-timer-shadow);
+                @media (max-width: 1366px) {
+                    & {
+                        height: 330px;
+                        width: 330px;
+                    }
+                }
+                svg {
+                    transform: rotate(-90deg) scale(2.54);
+                    @media (max-width: 1366px) {
+                        & {
+                            transform: rotate(-90deg) scale(2.11);
+                        }
+                    }
+                        circle {
+                            fill: none;
+                            stroke: var(--drb-Main-Color);
+                            stroke-width: 6px;
+                            stroke-dasharray: 440;
+                            transition: 2s;
+                        }
+                }
+            }
+        }
+    }
+    .settings-container {
+        width: 350px;
+        border-left: 1px solid var(--drb-lineX075);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        @media (max-width: 1366px) {
+            & {
+                width: 300px;
+            }
+        }
+        &.hide {
+            width: 0;
+            border: none;
+        }
+        .head {
+            @extend .center-f;
+            justify-content: space-between;
+            padding: 0.35rem 1rem;
+            border-bottom: 1px solid var(--drb-lineX075);
+            h4 {
+                font-size: 1.35em;
+                font-weight: 400;
+                color: var(--drb-secondart-text);
+            }
+            .hide-btn {
+                display: flex;
+                svg {
+                    height: 40px;
+                    cursor: pointer;
+                }
+            }
+        }
+        .inputs-container {
+            padding: 1rem;
+            .input-bar {
+                @extend .center-f;
+                justify-content: space-between;
+                margin-block: 0.85rem;
+                .title {
+                    font-size: 1.1em;
+                    color: var(--drb-secondart-text);
+                }
+                .input-taker {
+                    width: 100px;
+                    input {
+                        width: 100%;
+                        color: var(--drb-secondart-text);
+                        background-color: var(--drb-input-bg);
+                        padding: 0.25rem 0.65rem;
+                        border-radius: 3px;
+                    }
+                    &:last-of-type {
+                        display: flex;
+                        span {
+                            font-size: .85em;
+                            align-self: end;
+                            margin-left: 0.15rem;
+                            color: var(--drb-secondart-text);
+                        }
+                    }
+                }
+            }
+        }
+        .pomodoro-info {
+            padding: 1rem;
+            margin-top: auto;
+            .info-bar {
+                @extend .center-f;
+                justify-content: space-between;
+                width: 100%;
+                font-size: 1.25em;
+                .title {
+                    color: var(--drb-secondart-text);
+                }
+                .value {
+                    color: var(--drb-Main-Color);
+                }
+            }
+        }
+    }
+}

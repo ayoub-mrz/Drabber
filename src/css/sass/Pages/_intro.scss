@@ -1,0 +1,19 @@
+.intro {
+    @extend .center-g;
+    background-color: var(--drb-secondary-bg);
+    height: calc(100% - 70px);
+    .intro-content {
+        text-align: center;
+        svg {
+            height: 300px;
+            width: auto;
+            margin-bottom: 1.2rem;
+            border: 1px solid var(--drb-primary-bg);
+        }
+        h1 {
+            font-size: 1.6em;
+            font-weight: 400;
+            color: var(--drb-primary-text);
+        }
+    }
+}

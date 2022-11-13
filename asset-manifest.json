@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Drabber/static/css/main.2d138ee7.css",
-    "main.js": "/Drabber/static/js/main.42419991.js",
+    "main.css": "/Drabber/static/css/main.e4ac5279.css",
+    "main.js": "/Drabber/static/js/main.1fccf9b4.js",
     "static/media/Eye_gif.gif": "/Drabber/static/media/Eye_gif.c79da56815dccf6a71d3.gif",
     "static/media/form_load.gif": "/Drabber/static/media/form_load.a21f1b15a38392fdfd2f.gif",
     "static/media/TaskComplete.mp3": "/Drabber/static/media/TaskComplete.92364570bb248f86dfe2.mp3",
@@ -15,11 +15,11 @@
     "static/media/unCheckGoal.mp3": "/Drabber/static/media/unCheckGoal.2b5e26f24dca9369a809.mp3",
     "static/media/unCheck.mp3": "/Drabber/static/media/unCheck.e5962b2bc47fdca84e2d.mp3",
     "index.html": "/Drabber/index.html",
-    "main.2d138ee7.css.map": "/Drabber/static/css/main.2d138ee7.css.map",
-    "main.42419991.js.map": "/Drabber/static/js/main.42419991.js.map"
+    "main.e4ac5279.css.map": "/Drabber/static/css/main.e4ac5279.css.map",
+    "main.1fccf9b4.js.map": "/Drabber/static/js/main.1fccf9b4.js.map"
   },
   "entrypoints": [
-    "static/css/main.2d138ee7.css",
-    "static/js/main.42419991.js"
+    "static/css/main.e4ac5279.css",
+    "static/js/main.1fccf9b4.js"
   ]
 }

@@ -28,7 +28,7 @@ function History( {userProfile} ) {
           <div className="head" id={obj.Date} onClick={() => {toggleContent(obj.Date)}}>
             <ArrowSvg />
             <h2>{obj.Date}</h2>
-            <div className="progressBar" style={{width: `${history[i].percent}%`}} title={`Week Percent: ${history[0].percent}%`}></div>
+            <div className="progressBar" style={{width: `${history[i].percent}%`}} title={`Week Percent: ${history[i].percent}%`}></div>
           </div>
           <div className="weekContent">
             {cardList = Object.keys(history[i].WeekArchive).map((day) => {

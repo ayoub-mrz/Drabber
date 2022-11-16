@@ -345,14 +345,15 @@ const App = () => {
 
     let date = new Date();
 
-    let todayDate = new Date(date.setDate(date.getDate())).toUTCString().slice(5, 16);
+    let todayDate = new Date(date.setDate(date.getDate())).toString().slice(4, 15)
 
     let todayDay = date.getDay() === 0 ? "sunday" : arrayDays[date.getDay() - 1]
 
     let thisWeek = currentAccount[0].thisWeek
-
+    console.log(todayDate)
+    console.log(currentAccount[0].currentWeek[todayDay])
     if (appData[0].currentUser !== "") {
-
+      
       if (todayDate !== currentAccount[0].currentWeek[todayDay]) {
 
         // Set Undone To Todo Task 
@@ -897,8 +898,8 @@ const App = () => {
     let date = new Date();
     let mondayDate = date.getDate() - date.getDay() + 1;
     let anotherDay = mondayDate + num;
-    let finalDate = new Date(date.setDate(anotherDay)).toUTCString();
-    return finalDate.slice(5, 16);
+    let finalDate = new Date(date.setDate(anotherDay)).toString();
+    return finalDate.slice(4, 15);
   }
 
   // Pomodoro Settings

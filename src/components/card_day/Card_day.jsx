@@ -34,21 +34,19 @@ function Card_day( {title, array, getClickedDay} ) {
         </div>
 
         <div className="task-container">
-
           {
             array.map(task => (
               <div className={`task ${task.state}`} key={task.id}>
                 <img src={
-                  task.priority === "Not-Important_Not-Ergent" ? Priority1 
-                  : task.priority === "Not-Important_Ergent" ? Priority2  
-                  : task.priority === "Important_Not-Ergent" ? Priority3  
-                  : Priority4
+                    task.priority === "Not-Important_Not-Ergent" ? Priority1 
+                    : task.priority === "Not-Important_Ergent" ? Priority2  
+                    : task.priority === "Important_Not-Ergent" ? Priority3  
+                    : Priority4
                 } alt={task.priority} />
                 <p className='overFlow-text-hide'>{task.title}</p>
               </div>
             ))
           }
-
         </div>
 
     </div>

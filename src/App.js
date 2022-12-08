@@ -234,7 +234,6 @@ const App = () => {
         priority1.push(...priority3)
         priority1.push(...priority4)
         thisWeek[day] = priority1;
-
       }
     }
   }
@@ -350,8 +349,7 @@ const App = () => {
     let todayDay = date.getDay() === 0 ? "sunday" : arrayDays[date.getDay() - 1]
 
     let thisWeek = currentAccount[0].thisWeek
-    console.log(todayDate)
-    console.log(currentAccount[0].currentWeek[todayDay])
+    
     if (appData[0].currentUser !== "") {
       
       if (todayDate !== currentAccount[0].currentWeek[todayDay]) {
@@ -444,10 +442,10 @@ const App = () => {
           break;
 
           case "days-input":
-            if (targetValue !== "" && targetValue >= 10 && targetValue <= 120) {
+            if (targetValue !== "" && targetValue >= 5 && targetValue <= 120) {
               setPassAdd({...passAdd, input2: true})
             } else if (targetValue !== "") {
-              if (targetValue < 10 || targetValue > 120) {
+              if (targetValue < 5 || targetValue > 120) {
                 createUpMsg("red", "Number is Not Valid");
                 inputAnimation(targetClass);
                 setPassAdd({...passAdd, input2: false})
@@ -532,7 +530,7 @@ const App = () => {
         let goal = {id: uuidV4(), title: input1Value, days: daysGoal, goalRate: 0, goalComplete: 0, itsDone: false, startAt: "", endAt: ""}
 
         // Set Start Date
-        goal.startAt = new Date().toString().slice(0, 15)
+        goal.startAt = new Date().toString().slice(4, 15)
 
         setTimeout(() => {
           let arrayOfUser = appData[1].filter(user => user.id !== appData[0].idUser);
@@ -708,7 +706,7 @@ const App = () => {
 
     if (firstHalfArray.filter(day => day.state === "").length === 0) {
       myGoal[0].itsDone = true;
-      myGoal[0].endAt = new Date().toString().slice(0, 15);
+      myGoal[0].endAt = new Date().toString().slice(4, 15);
       setTimeout(() => {
         setCurrentSection("");
         // play sound

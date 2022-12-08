@@ -73,6 +73,9 @@
             &.done {
                 background-color: var(--drb-task-done);
                 filter: brightness(1.15);
+                p {
+                    text-decoration: line-through;
+                }
             }
             &.undone {
                 background-color: var(--drb-task-undone);

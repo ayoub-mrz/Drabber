@@ -6,6 +6,7 @@ import CardDay from './../../components/card_day/Card_day'
 function History( {userProfile} ) {
 
   const [history, setHistory] = useState(userProfile.history);
+  
   let cardList;
 
   function toggleContent(id) {
@@ -19,7 +20,7 @@ function History( {userProfile} ) {
 
       {history.length === 0 ?
         <div className="mockupHistory">
-          <p>When you pass a week, your history shold be here.</p>
+          <p>When you pass a week, your history should be here.</p>
         </div>
       : null}
 

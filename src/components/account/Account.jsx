@@ -37,6 +37,7 @@ function Account( {appData, mainTheme, setMainTheme, apdateData, logOut} ) {
     <div className='line popUpMenu'></div>
     <div className="logOut popUpMenu">
       <button className='btn-wbc popUpMenu' onClick={() => {logOut()}}>Log Out</button>
+      <button className='btn-wbc popUpMenu' onClick={() => {console.log('hi')}}>Save Data</button>
     </div>
   </div>
 

@@ -18,7 +18,7 @@ function Goal_add( {popupAction, passAdd, createUpMsg, switchInputPopUp} ) {
             <input className='goal-input' type="text" autoFocus={true} placeholder='...' onChange={(e) => {popupAction(POPUP_ACTIONS.STYLE_INPUT, e)}} onBlur={(e) => {popupAction(POPUP_ACTIONS.CHECK_INPUT, e)}}/>
           </div>
           <div className="numDays">
-            <h5>Number of days <span>(10 ~ 120)</span></h5>
+            <h5>Number of days <span>(5 ~ 120)</span></h5>
             <input className='days-input' type="number" placeholder='60' min="5" max="120" onChange={(e) => {popupAction(POPUP_ACTIONS.STYLE_INPUT, e)}} onBlur={(e) => {popupAction(POPUP_ACTIONS.CHECK_INPUT, e)}}/>
           </div>
           <button onClick={(e) => {passAdd.input1 && passAdd.input2 ? popupAction(POPUP_ACTIONS.ADD_GOAL, e) : createUpMsg("red", "Please fill all inputs")}}>

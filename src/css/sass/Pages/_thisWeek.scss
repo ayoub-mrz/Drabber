@@ -124,6 +124,9 @@
                     border-radius: 5px;
                     &.done {
                         background-color: var(--drb-task-done);
+                        p {
+                            text-decoration: line-through;
+                        }
                     }
                     &.undone {
                         background-color: var(--drb-task-undone);

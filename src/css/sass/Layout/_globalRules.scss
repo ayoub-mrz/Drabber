@@ -95,6 +95,7 @@ button, input {
     margin-left: 230px;
     overflow-y: scroll;
     position: relative;
+    transition: opacity .4s;
 }
 
 .popup-closer {

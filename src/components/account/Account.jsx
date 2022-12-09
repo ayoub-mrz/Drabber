@@ -3,14 +3,23 @@ import user from './../../assets/ayoub.jpg';
 import UserSvg from './../../assets/user';
 
 
-
 function Account( {appData, mainTheme, setMainTheme, apdateData, logOut} ) {
 
   function changeColor (color) {
     setMainTheme({...mainTheme, "color": color});
     apdateData("currentColor", color);
   }
+  
+  function downloadFile() {
+    const saveFile = document.querySelector(".saveData a")
+    const text = localStorage.getItem('data');
 
+    const file = new Blob([text], {
+      type: "text/plain",
+    });
+    saveFile.href = URL.createObjectURL(file);
+    saveFile.download = "Drabber(Data).txt";
+  }
 
   return (
       
@@ -36,8 +45,10 @@ function Account( {appData, mainTheme, setMainTheme, apdateData, logOut} ) {
     </div>
     <div className='line popUpMenu'></div>
     <div className="logOut popUpMenu">
+      <button className='btn-wbc saveData popUpMenu' onClick={() => {downloadFile()}}>
+        <a className='popUpMenu'>Save Data</a>
+      </button>
       <button className='btn-wbc popUpMenu' onClick={() => {logOut()}}>Log Out</button>
-      <button className='btn-wbc popUpMenu' onClick={() => {console.log('hi')}}>Save Data</button>
     </div>
   </div>
 

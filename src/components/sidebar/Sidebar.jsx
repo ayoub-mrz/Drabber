@@ -20,23 +20,42 @@ function Sidebar( {appData, setCurrentSection, userProfile, setGoalData, updateP
         {title: "history"},
     ]
 
-    function ChangeActive(e) {
+    function ChangeActive(e, section) {
 
-        let linksArray = document.querySelectorAll('.sideBar .links .link')
-        // remove active class
-        linksArray.forEach(link => {
-            link.classList.remove('active');
-        })
-        // add active to clicked link
-        linksArray.forEach(link => {
-            if (link.classList.value.includes(e)) {
-            link.classList.add('active');
-            }
-        })
+        setTimeout(() => {
+            let linksArray = document.querySelectorAll('.sideBar .links .link')
+            // remove active class
+            linksArray.forEach(link => {
+                link.classList.remove('active');
+            })
+            // add active to clicked link
+            linksArray.forEach(link => {
+                if (link.classList.value.includes(e)) {
+                link.classList.add('active');
+                }
+            })
 
-        // Return App Name
-        document.querySelector('head title').textContent = 'Drabber'
+            // Return App Name
+            document.querySelector('head title').textContent = 'Drabber'
+
+            // Change Current Section
+            setCurrentSection(section)
+        }, 400);
+
+        // transition animation 
+        const content = document.querySelector(".content")
+        const sideBar = document.querySelector(".sideBar");
+        fadeInFadeOut(content, sideBar);
     
+    }
+
+    function fadeInFadeOut(e, sideBar) {
+        e.style.opacity = '0';
+        sideBar.style.pointerEvents = 'none';
+        setTimeout(() => {
+            e.style.opacity = '1';
+            sideBar.style.pointerEvents = 'unset';
+        }, 500);
     }
 
     let date = new Date().getDay();
@@ -65,7 +84,7 @@ function Sidebar( {appData, setCurrentSection, userProfile, setGoalData, updateP
                     <div className={link.title} key={link.title}>
 
                         {link.title !== "goal" ?
-                        <div className={`link ${link.title}`} onClick={() => {ChangeActive(link.title); setCurrentSection(link.title); updateProgressDay(userProfile[0].thisWeek[localDate]);}} >
+                        <div className={`link ${link.title}`} onClick={() => {ChangeActive(link.title, link.title); updateProgressDay(userProfile[0].thisWeek[localDate]);}} >
                             <div className='bg'></div>
                             <div className='img'>
                                 {i === 0 ? <HomeSvg /> : null}
@@ -82,7 +101,7 @@ function Sidebar( {appData, setCurrentSection, userProfile, setGoalData, updateP
                                 <div className='title'>Goals({goals.length})</div>
                                 <div className="links-bar">
                                     {goals.map(goal => (
-                                        <div id={goal.id} className={`link ${goal.id}`} key={goal.id} onClick={(e) => {ChangeActive(goal.id);setGoalData(goal.id); setCurrentSection("goal")}}>
+                                        <div id={goal.id} className={`link ${goal.id}`} key={goal.id} onClick={(e) => {ChangeActive(goal.id, goal);setGoalData(goal.id)}}>
                                             <div className='bg'></div>
                                             <div className='img'>
                                                 <GoalSvg />

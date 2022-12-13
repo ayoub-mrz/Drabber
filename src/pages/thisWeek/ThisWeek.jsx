@@ -26,6 +26,63 @@ function ThisWeek( {popup, togglePopup, popupAction, passAdd, createUpMsg, setPa
   //
   const [currentDayBy, setCurrentDayBy] = useState('');
 
+  // // Drag & Drop -----------------------------------------------------------------------------------
+  // const Draggble_Elements = document.querySelectorAll(".task") || [];
+  // const Draggble_Containers = document.querySelectorAll('.card-day .task-container') || [];
+  // console.log(Draggble_Elements)
+  // console.log(Draggble_Containers)
+  // let elementDragId;
+  // let oldPlace;
+  // let newPlace;
+
+  // // Draggble Element 
+  // Draggble_Elements.forEach(task => {
+  //   task.addEventListener('dragstart', dragStart)
+  //   task.addEventListener('dragend', dragEnd)
+  // })
+  // function dragStart() {
+  //   elementDragId = this.id;
+  //   oldPlace = this.parentElement.parentElement.getAttribute("data-day");
+  // }
+  // function dragEnd() {
+  //   elementDragId = null;
+  //   oldPlace = null;
+  // }
+
+  // // Draggble Element 
+  // Draggble_Containers.forEach(container => {
+  //   container.addEventListener('dragover', dragOver)
+  //   container.addEventListener('dragenter', dragEnter)
+  //   container.addEventListener('dragleave', dragLeave)
+  //   container.addEventListener('drop', dragDrop)
+  // })
+  // function dragOver(e) {
+  //   e.preventDefault();
+  // }
+  // function dragEnter() {
+  //   this.style.filter = "brightness(.9)"
+  // }
+  // function dragLeave() {
+  //   this.style.filter = "unset";
+    
+  // }
+  // function dragDrop() {
+  //   this.style.filter = "unset";
+  //   newPlace = this.parentElement.getAttribute("data-day");
+  //   // delete task from old place
+  //   // for (const day in week) {
+  //   //   let newWeek = week[day].filter(task => task.id !== elementDragId)
+  //   //   setWeek(newWeek);
+  //   // }
+
+  //   // replace task in new place
+  //   // for (const day in week) {
+  //   //   console.log(day)
+  //   // }
+  // }
+
+  // //-------------------------------------------------------------------------------------
+
   //
   function getClickedDay(day) {
     setCurrentDayBy(day)

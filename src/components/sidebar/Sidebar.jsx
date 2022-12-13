@@ -101,7 +101,7 @@ function Sidebar( {appData, setCurrentSection, userProfile, setGoalData, updateP
                                 <div className='title'>Goals({goals.length})</div>
                                 <div className="links-bar">
                                     {goals.map(goal => (
-                                        <div id={goal.id} className={`link ${goal.id}`} key={goal.id} onClick={(e) => {ChangeActive(goal.id, goal);setGoalData(goal.id)}}>
+                                        <div id={goal.id} className={`link ${goal.id}`} key={goal.id} onClick={(e) => {ChangeActive(goal.id, "goal");setGoalData(goal.id)}}>
                                             <div className='bg'></div>
                                             <div className='img'>
                                                 <GoalSvg />

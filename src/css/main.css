@@ -1183,7 +1183,7 @@ input[type=number] {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  align-self: baseline;
+  align-self: baseline !important;
   display: flex;
   flex-direction: column;
 }

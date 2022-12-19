@@ -7,7 +7,7 @@
     place-self: center;
     overflow: hidden;
     user-select: none;
-    align-self: baseline;
+    align-self: baseline !important;
     display: flex;
     flex-direction: column;
     @extend .smoothPointer;

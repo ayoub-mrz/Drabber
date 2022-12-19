@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Drabber/static/css/main.465b3b9d.css",
+    "main.css": "/Drabber/static/css/main.4c33e394.css",
     "main.js": "/Drabber/static/js/main.1bd25534.js",
     "static/media/Eye_gif.gif": "/Drabber/static/media/Eye_gif.c79da56815dccf6a71d3.gif",
     "static/media/form_load.gif": "/Drabber/static/media/form_load.a21f1b15a38392fdfd2f.gif",
@@ -15,11 +15,11 @@
     "static/media/unCheckGoal.mp3": "/Drabber/static/media/unCheckGoal.2b5e26f24dca9369a809.mp3",
     "static/media/unCheck.mp3": "/Drabber/static/media/unCheck.e5962b2bc47fdca84e2d.mp3",
     "index.html": "/Drabber/index.html",
-    "main.465b3b9d.css.map": "/Drabber/static/css/main.465b3b9d.css.map",
+    "main.4c33e394.css.map": "/Drabber/static/css/main.4c33e394.css.map",
     "main.1bd25534.js.map": "/Drabber/static/js/main.1bd25534.js.map"
   },
   "entrypoints": [
-    "static/css/main.465b3b9d.css",
+    "static/css/main.4c33e394.css",
     "static/js/main.1bd25534.js"
   ]
 }

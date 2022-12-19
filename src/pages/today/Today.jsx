@@ -2,6 +2,10 @@ import React from 'react'
 import CheckImg from './../../assets/check.png'
 import Option from './../../assets/Ellipsis'
 import GarbageSvg from './../../assets/TrashSvg'
+import Priority1 from './../../assets/Not-Important_Not-Ergent.png'
+import Priority2 from './../../assets/Not-Important_Ergent.png'
+import Priority3 from './../../assets/Important_Not-Ergent.png'
+import Priority4 from './../../assets/Important_Ergent.png'
 
 function Today( {popup, setPopup, currentAccount, deleteTask, toggleCheckBox, toggleOption} ) {
 
@@ -38,6 +42,15 @@ function Today( {popup, setPopup, currentAccount, deleteTask, toggleCheckBox, to
 
               {todo.map((task) => (
                 <div className="task-card" key={task.id}>
+
+                  <div className="flagPriorty-container">
+                    <img src={
+                        task.priority === "Not-Important_Not-Ergent" ? Priority1 
+                        : task.priority === "Not-Important_Ergent" ? Priority2  
+                        : task.priority === "Important_Not-Ergent" ? Priority3  
+                        : Priority4
+                      } alt={task.priority} title={task.priority}/>
+                  </div>
 
                 <div className="option popUpMenu">
                   <div className='option-btn popUpMenu' onClick={() => {toggleOption(task.id)}}><Option /></div>
@@ -80,6 +93,15 @@ function Today( {popup, setPopup, currentAccount, deleteTask, toggleCheckBox, to
 
               {done.map((task) => (
                   <div className="task-card done" key={task.id}>
+
+                    <div className="flagPriorty-container">
+                      <img src={
+                          task.priority === "Not-Important_Not-Ergent" ? Priority1 
+                          : task.priority === "Not-Important_Ergent" ? Priority2  
+                          : task.priority === "Important_Not-Ergent" ? Priority3  
+                          : Priority4
+                        } alt={task.priority} title={task.priority}/>
+                    </div>
 
                   <div className="option popUpMenu">
                     <div className='option-btn popUpMenu' onClick={() => {toggleOption(task.id)}}><Option /></div>

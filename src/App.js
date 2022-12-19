@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-pascal-case */
 /* eslint-disable no-unused-vars */
-/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable default-case */
 import React, { useState, useEffect } from 'react';
 import { Goal, History, Home, Intro, Pomodoro, ThisWeek, Today } from "./pages";
@@ -125,35 +124,37 @@ const App = () => {
   }
 
   // Messoge For Undo Deleting
-  function CreateDownMsg(text) {
+  function CreateDownMsg(text, showIt) {
     
-    //
-    let oldData = currentAccount[0]
-    sessionStorage.setItem('oldData', JSON.stringify(oldData))
+    if (showIt === undefined) {
+      //
+      let oldData = currentAccount[0]
+      sessionStorage.setItem('oldData', JSON.stringify(oldData))
 
-    let hideDuration = 6000
+      let hideDuration = 6000
 
-    let deleteMsg = document.querySelector('.delete-msg');
+      let deleteMsg = document.querySelector('.delete-msg');
 
-    handeMsg()
-    
-    //
-    function handeMsg() {
-      if (deleteMsg.classList.contains('show')) {
-        setTimeout(() => {handeMsg()}, 500);
-      } else {
-        // Set Text and animation
-        deleteMsg.classList.add("show")
-        setTimeout(() => {
-          deleteMsg.style.cssText = 'opacity: 1; transform: translateY(0px);';
+      handeMsg()
+      
+      //
+      function handeMsg() {
+        if (deleteMsg.classList.contains('show')) {
+          setTimeout(() => {handeMsg()}, 500);
+        } else {
+          // Set Text and animation
+          deleteMsg.classList.add("show")
           setTimeout(() => {
-            deleteMsg.style.cssText = 'opacity: 0; transform: translateY(30px);';
+            deleteMsg.style.cssText = 'opacity: 1; transform: translateY(0px);';
             setTimeout(() => {
-              deleteMsg.classList.remove("show")
-            }, 1000);
-          }, hideDuration);
-        }, 100);
-        let textField = document.querySelector('.delete-name').textContent = text;
+              deleteMsg.style.cssText = 'opacity: 0; transform: translateY(30px);';
+              setTimeout(() => {
+                deleteMsg.classList.remove("show")
+              }, 1000);
+            }, hideDuration);
+          }, 100);
+          let textField = document.querySelector('.delete-name').textContent = text;
+        }
       }
     }
 
@@ -720,9 +721,9 @@ const App = () => {
     otherUsers.push(...currentAccount);
     setAppData([appData[0], otherUsers]);
   }
-
+  
   //
-  function deleteTask(taskId, currentDayBy) {
+  function deleteTask(taskId, currentDayBy, showIt) {
 
     let currentDay;
     
@@ -734,7 +735,7 @@ const App = () => {
 
     let myTask = currentAccount[0].thisWeek[currentDay].filter(task => task.id === taskId);
 
-    CreateDownMsg(myTask[0].title)
+    CreateDownMsg(myTask[0].title, showIt)
 
     let otherUsers = appData[1].filter(user => user.id !== appData[0].idUser);
 
@@ -813,7 +814,6 @@ const App = () => {
   } 
 
   function toggleOption(id) {
-
     setPopup({...popup, taskMore: true});
     
     setTimeout(() => {
@@ -921,7 +921,6 @@ const App = () => {
     }
   }
 
-
   return (
     <div className='app'>
       {loading ? <Loading_page /> : null}
@@ -940,7 +939,7 @@ const App = () => {
         {currentSection === "home" ? <Home popup={popup} togglePopup={togglePopup} reward={reward} setReward={setReward} userProfile={currentAccount} toggleOption={toggleOption} deleteGoal={deleteGoal}/> : null}
         {currentSection === "goal" ? <Goal popup={popup} togglePopup={togglePopup} goal={goal} deleteGoal={deleteGoal} updateDays={updateDays}/> : null}
         {currentSection === "today" ? <Today popup={popup} setPopup={setPopup} currentAccount={currentAccount} deleteTask={deleteTask} toggleCheckBox={toggleCheckBox} toggleOption={toggleOption}/> : null}
-        {currentSection === "thisWeek" ? <ThisWeek popup={popup} togglePopup={togglePopup} popupAction={popupAction} passAdd={passAdd} createUpMsg={createUpMsg} setPassAdd={setPassAdd} toggleOption={toggleOption} deleteTask={deleteTask} currentAccount={currentAccount} checkAllTasks={checkAllTasks} checkOneTask={checkOneTask} setUndone={setUndone}/> : null}
+        {currentSection === "thisWeek" ? <ThisWeek popup={popup} togglePopup={togglePopup} popupAction={popupAction} passAdd={passAdd} createUpMsg={createUpMsg} setPassAdd={setPassAdd} toggleOption={toggleOption} deleteTask={deleteTask} currentAccount={currentAccount} checkAllTasks={checkAllTasks} checkOneTask={checkOneTask} setUndone={setUndone} setCurrentSection={setCurrentSection} appData={appData} setAppData={setAppData}/> : null}
         {currentSection === "pomodoro" ? <Pomodoro showSettings={showSettings} setShowSettings={setShowSettings} userProfile={currentAccount[0]} createUpMsg={createUpMsg} updatePomodoro={updatePomodoro}/> : null}
         {currentSection === "history" ? <History userProfile={currentAccount[0]}/> : null}
         <ShortCuts currentSection={currentSection} switchInputPopUp={switchInputPopUp}/>

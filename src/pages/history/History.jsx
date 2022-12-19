@@ -33,7 +33,7 @@ function History( {userProfile} ) {
           </div>
           <div className="weekContent">
             {cardList = Object.keys(history[i].WeekArchive).map((day) => {
-              return <CardDay title={day} array={history[i].WeekArchive[day]} key={day}/>
+              return <CardDay title={day} array={history[i].WeekArchive[day]} draggable={false} key={day}/>
             })}
           </div>
         </div>

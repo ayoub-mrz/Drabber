@@ -1173,7 +1173,7 @@ input[type=number] {
 
 .card-day {
   width: 300px;
-  height: 350px;
+  min-height: 350px;
   border-radius: 5px;
   background-color: var(--drb-card-bg);
   margin: 1rem;
@@ -1183,12 +1183,18 @@ input[type=number] {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  align-self: baseline;
+  display: flex;
+  flex-direction: column;
 }
 .card-day.active {
-  border: 1px solid var(--drb-Main-Color);
+  outline: 1px solid var(--drb-Main-Color);
 }
 .card-day.blur {
   filter: blur(1.5px);
+}
+.card-day.blur:hover {
+  filter: unset;
 }
 .card-day:hover {
   transform: scale(0.98);
@@ -1196,7 +1202,7 @@ input[type=number] {
 @media (max-width: 1366px) {
   .card-day {
     width: 250px;
-    height: 300px;
+    min-height: 300px;
   }
 }
 .card-day .head {
@@ -1220,7 +1226,13 @@ input[type=number] {
 }
 .card-day .task-container {
   width: 100%;
+  min-height: 290px;
   padding: 0.65rem;
+}
+@media (max-width: 1366px) {
+  .card-day .task-container {
+    min-height: 240px;
+  }
 }
 .card-day .task-container .task {
   height: 30px;
@@ -1256,19 +1268,6 @@ input[type=number] {
 .card-day .task-container .task.undone {
   background-color: var(--drb-task-undone);
   filter: brightness(1.15);
-}
-
-.flow-card {
-  position: relative;
-}
-.flow-card::after {
-  content: "";
-  width: 100%;
-  height: 100px;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  background: linear-gradient(to top, var(--drb-gradient-overFlow), rgba(0, 0, 0, 0));
 }
 
 .intro {
@@ -1900,6 +1899,25 @@ input[type=number] {
 .todaySection .column-container .todo-column .task-container .task-card:not(:last-child), .todaySection .column-container .done-column .task-container .task-card:not(:last-child) {
   margin-bottom: 0.65rem;
 }
+.todaySection .column-container .todo-column .task-container .task-card .flagPriorty-container, .todaySection .column-container .done-column .task-container .task-card .flagPriorty-container {
+  position: absolute;
+  padding: 0.15rem;
+}
+.todaySection .column-container .todo-column .task-container .task-card .flagPriorty-container img, .todaySection .column-container .done-column .task-container .task-card .flagPriorty-container img {
+  position: relative;
+  height: 25px;
+  z-index: 3;
+}
+.todaySection .column-container .todo-column .task-container .task-card .flagPriorty-container:after, .todaySection .column-container .done-column .task-container .task-card .flagPriorty-container:after {
+  content: "";
+  position: absolute;
+  top: -35px;
+  left: -35px;
+  border: 35px solid;
+  border-color: transparent var(--drb-lineX025) transparent transparent;
+  transform: rotate(45deg);
+  z-index: 2;
+}
 .todaySection .column-container .todo-column .task-container .task-card .option, .todaySection .column-container .done-column .task-container .task-card .option {
   position: absolute;
   top: 10px;
@@ -2075,14 +2093,12 @@ input[type=number] {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-template-rows: repeat(auto-fill, minmax(350px, 350px));
   gap: 1rem;
   padding: 1rem 1rem 0 1rem;
 }
 @media (max-width: 1366px) {
   .thisWeekSection .thisWeek-container .cards-days-container {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-template-rows: repeat(auto-fill, minmax(300px, 310px));
   }
 }
 .thisWeekSection .info-container {

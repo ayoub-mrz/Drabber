@@ -47,6 +47,25 @@
                     &:not(:last-child) {
                         margin-bottom: 0.65rem;
                     }
+                    .flagPriorty-container {
+                        position: absolute;
+                        padding: .15rem;
+                        img {
+                            position: relative;
+                            height: 25px;
+                            z-index: 3;
+                        }
+                        &:after {
+                            content: "";
+                            position: absolute;
+                            top: -35px;
+                            left: -35px;
+                            border: 35px solid ;
+                            border-color: transparent var(--drb-lineX025) transparent transparent;
+                            transform: rotate(45deg);
+                            z-index: 2;
+                        }
+                    }
                     .option {
                         position: absolute;
                         top: 10px;

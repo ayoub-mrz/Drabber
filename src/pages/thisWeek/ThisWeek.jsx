@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useState} from 'react'
 import InputTask from './../../components/input-task/InputTask'
 import CardDay from './../../components/card_day/Card_day'
@@ -13,75 +12,81 @@ import Option from './../../assets/Ellipsis'
 import GarbageSvg from './../../assets/TrashSvg'
 import { useEffect } from 'react'
 
-function ThisWeek( {popup, togglePopup, popupAction, passAdd, createUpMsg, setPassAdd, toggleOption, deleteTask, currentAccount, checkAllTasks, checkOneTask, setUndone} ) {
+function ThisWeek( {popup, togglePopup, popupAction, passAdd, createUpMsg, setPassAdd, toggleOption, deleteTask, currentAccount, checkAllTasks, checkOneTask, setUndone, setCurrentSection, appData, setAppData} ) {
 
   const [week, setWeek] = useState(currentAccount[0].thisWeek)
 
-  const cardList = Object.keys(week).map((day) => {
-    return <CardDay title={day} array={week[day]} getClickedDay={getClickedDay} key={day}/>
-  })
-  //
   const [infoArray, setInfoArray] = useState('');
 
-  //
   const [currentDayBy, setCurrentDayBy] = useState('');
 
-  // // Drag & Drop -----------------------------------------------------------------------------------
-  // const Draggble_Elements = document.querySelectorAll(".task") || [];
-  // const Draggble_Containers = document.querySelectorAll('.card-day .task-container') || [];
-  // console.log(Draggble_Elements)
-  // console.log(Draggble_Containers)
-  // let elementDragId;
-  // let oldPlace;
-  // let newPlace;
+  // Drag & Drop -----------------------------------------------------------------------------------
+  const Draggble_Elements = document.querySelectorAll(".task") || [];
+  const Draggble_Containers = document.querySelectorAll('.card-day .task-container') || [];
+  const [info, setInfo] = useState({elementDragId: "", oldPlace: "", newPlace: ""});
+  const [countDroped, setCountDroped] = useState(0);
 
-  // // Draggble Element 
-  // Draggble_Elements.forEach(task => {
-  //   task.addEventListener('dragstart', dragStart)
-  //   task.addEventListener('dragend', dragEnd)
-  // })
-  // function dragStart() {
-  //   elementDragId = this.id;
-  //   oldPlace = this.parentElement.parentElement.getAttribute("data-day");
-  // }
-  // function dragEnd() {
-  //   elementDragId = null;
-  //   oldPlace = null;
-  // }
+  // Draggble Element 
+  Draggble_Elements.forEach(task => {
+    task.addEventListener('dragstart', dragStart)
+    task.addEventListener('dragend', dragEnd)
+  })
 
-  // // Draggble Element 
-  // Draggble_Containers.forEach(container => {
-  //   container.addEventListener('dragover', dragOver)
-  //   container.addEventListener('dragenter', dragEnter)
-  //   container.addEventListener('dragleave', dragLeave)
-  //   container.addEventListener('drop', dragDrop)
-  // })
-  // function dragOver(e) {
-  //   e.preventDefault();
-  // }
-  // function dragEnter() {
-  //   this.style.filter = "brightness(.9)"
-  // }
-  // function dragLeave() {
-  //   this.style.filter = "unset";
-    
-  // }
-  // function dragDrop() {
-  //   this.style.filter = "unset";
-  //   newPlace = this.parentElement.getAttribute("data-day");
-  //   // delete task from old place
-  //   // for (const day in week) {
-  //   //   let newWeek = week[day].filter(task => task.id !== elementDragId)
-  //   //   setWeek(newWeek);
-  //   // }
+  // Draggble Element 
+  Draggble_Containers.forEach(container => {
+    container.addEventListener('dragover', dragOver)
+    container.addEventListener('dragenter', dragEnter)
+    container.addEventListener('dragleave', dragLeave)
+    container.addEventListener('drop', dragDrop)
+  })
 
-  //   // replace task in new place
-  //   // for (const day in week) {
-  //   //   console.log(day)
-  //   // }
-  // }
+  function dragStart() {
+    info.elementDragId = this.getAttribute("data-id");
+    info.oldPlace = this.parentElement.parentElement.getAttribute("data-day");
+  }
+  function dragEnd() {
+    setInfo({elementDragId: "", oldPlace: "", newPlace: ""});
+  }
+  
+  //
+  function dragOver(e) {
+    e.preventDefault();
+  }
+  function dragEnter() {
+    this.style.filter = "brightness(.9)"
+  }
+  function dragLeave() {
+    this.style.filter = "unset";
+  }
+  function dragDrop() {
+    this.style.filter = "unset";
+    info.newPlace = this.parentElement.getAttribute("data-day");
 
-  // //-------------------------------------------------------------------------------------
+    // save data
+    setTimeout(() => {
+      let otherUsers = appData[1].filter(user => user.id !== appData[0].idUser);
+      otherUsers.push(...currentAccount);
+      setAppData([appData[0], otherUsers]);
+    }, 50);
+
+    // Reload The Fuking Component to fix the multiple render😡
+    setCountDroped(countDroped + 1)
+    if (countDroped === 2) {
+      setCountDroped(0)
+      setTimeout(() => {
+        setCurrentSection("");
+      }, 200);
+      setTimeout(() => {
+        setCurrentSection("thisWeek");
+      }, 205);
+    }
+  }
+  //-------------------------------------------------------------------------------------
+  
+  //
+  const cardList = Object.keys(week).map((day) => {
+    return <CardDay title={day} array={week[day]} getClickedDay={getClickedDay} draggable={true} info={info} week={week} currentAccount={currentAccount} key={day}/>
+  })
 
   //
   function getClickedDay(day) {
@@ -94,7 +99,7 @@ function ThisWeek( {popup, togglePopup, popupAction, passAdd, createUpMsg, setPa
     if (currentDayBy !== "") {
       getClickedDay(currentDayBy)
     }
-  }, [currentAccount])
+  }, [currentAccount, currentDayBy])
 
   let taskDoneNum
   if (Array.isArray(infoArray)) {
@@ -177,6 +182,9 @@ function ThisWeek( {popup, togglePopup, popupAction, passAdd, createUpMsg, setPa
         <div className="cards-days-container">
 
           {cardList}
+          {/* {Object.keys(week).map((day) => (
+            <CardDay title={day} array={week[day]} getClickedDay={getClickedDay} draggable={true} info={info} week={week} key={day}/>
+          ))} */}
 
         </div>
       </div>
